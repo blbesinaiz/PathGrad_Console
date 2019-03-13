@@ -1,4 +1,5 @@
 ﻿using PathGrad_Console_.Models;
+using PathGrad_Console_.Paths;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,7 +15,7 @@ namespace PathGrad_Console_.Profile
             Console.WriteLine("Welcome {0}", Student.name);
             Console.WriteLine("-------------------------");
 
-            Console.WriteLine("\n\n Student Menu");
+            Console.WriteLine("\nStudent Menu");
             Console.WriteLine("-------------------------");
 
             Console.WriteLine("Please Choose an Option: ");
@@ -24,11 +25,14 @@ namespace PathGrad_Console_.Profile
             Console.WriteLine("(4) What-If Central");
             Console.WriteLine("(0) Exit");
 
+            Console.Write("Option Selected: ");
+
             int userOption = Convert.ToInt32(Console.ReadLine());
 
+            Console.Clear();
             switch (userOption)
             {
-                case 1: //Generate perfect path
+                case 1: Perfect.Generate_Perfect();
                     break;
                 case 2: //View Previous perfect path generations
                     break;
@@ -36,7 +40,8 @@ namespace PathGrad_Console_.Profile
                     break;
                 case 4: //What-If central
                     break;
-                case 0: //Exit
+                case 0:
+                    System.Environment.Exit(0);
                     break;
                 default: //Bad selection
                     break;
