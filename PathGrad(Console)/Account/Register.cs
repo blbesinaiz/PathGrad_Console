@@ -31,7 +31,7 @@ namespace PathGrad_Console_.Account
             Console.Write("Password: ");
             string userPass = Console.ReadLine();
 
-            int LoginAttempts = 0;
+            int InitialLogin = 1;
 
             //Initialize Session with Student Values
             Student.ID = userID;
@@ -44,7 +44,7 @@ namespace PathGrad_Console_.Account
               {"password", userPass},
               { "name", userName},
               { "email", userEmail},
-              { "Login_Attempts", LoginAttempts}
+              { "Initial_Login", InitialLogin}
             };
 
             //Make Connection with database

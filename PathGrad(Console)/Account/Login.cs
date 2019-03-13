@@ -9,6 +9,7 @@ using MongoDB.Bson.IO;
 using MongoDB.Driver.Builders;
 using PathGrad_Console_.Profile;
 using PathGrad_Console_.Models;
+using PathGrad_Console_.Database;
 
 namespace PathGrad_Console_.Account
 {
@@ -33,10 +34,10 @@ namespace PathGrad_Console_.Account
             {
                 //Initialize Session with Student Values
                 Student.ID = userID;
-                //Student.name = userName;
+                updateAttempts(userID);
 
-                //Console.WriteLine("\nSuccessfully Logged In");
-                checkAttempts(userID);
+                //After settingup/restore session, transition to student profile page
+                MainPage.welcomePage();
             }
             else
             {
@@ -91,7 +92,10 @@ namespace PathGrad_Console_.Account
             return success;
         }
 
-        public static void checkAttempts(int ID)
+        //Function determines if intial login
+        //If initial, then initialize student profile
+        //If not, update login attempt and restore session
+        public static void updateAttempts(int ID)
         {
             //Make a connection with DB for Login collection
             var conString = "mongodb://localhost:27017";
@@ -103,7 +107,7 @@ namespace PathGrad_Console_.Account
             var filter = new BsonDocument
             {
                 {"_id", ID},
-                {"Login_Attempts", 0}
+                {"Initial_Login", 1}
             };
 
             //Search for desired elements
@@ -113,14 +117,22 @@ namespace PathGrad_Console_.Account
                 //Initialize Account
                 Console.Clear();
                 Initialize.setupProfile();
+
+                //Take off initial login
+                string param = "{$set: { 'Initial_Login' : '0' } }";
+                string filter2 = "{ '_id' : " + ID + " }";
+
+                BsonDocument filterDoc = BsonDocument.Parse(filter2);
+                BsonDocument document = BsonDocument.Parse(param);
+                collection.UpdateOne(filterDoc, document);
+
             }
             else
             {
                 //Restore Account
+                db.restoreSession();
+
             }
-                
-
         }
-
     }
 }

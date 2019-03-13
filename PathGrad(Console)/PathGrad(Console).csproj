@@ -84,12 +84,14 @@
     <Compile Include="Account\ResetPassword.cs" />
     <Compile Include="Backdoor.cs" />
     <Compile Include="Database\db.cs" />
+    <Compile Include="Models\BSON.cs" />
     <Compile Include="Models\Course.cs" />
     <Compile Include="Models\Student.cs" />
+    <Compile Include="Paths\Alternates.cs" />
+    <Compile Include="Paths\Perfect.cs" />
     <Compile Include="Profile\Initialize.cs" />
     <Compile Include="Profile\MainPage.cs" />
     <Compile Include="Profile\PerfectPath.cs" />
-    <Compile Include="Profile\Save.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -97,5 +99,6 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

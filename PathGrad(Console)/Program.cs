@@ -30,6 +30,7 @@ namespace PathGrad_Console_
             Console.WriteLine("(1) Login");
             Console.WriteLine("(2) Register New Account");
             Console.WriteLine("(3) Forgot Password");
+            Console.WriteLine("(4) Exit");
             Console.WriteLine("(0) Back Door");
 
             Console.Write("\n\n Option: ");
@@ -48,6 +49,11 @@ namespace PathGrad_Console_
                 case 3:
                     Console.Clear();
                     ResetPassword.Reset();
+                    break;
+                case 4:
+                    Console.WriteLine("Happy Journeys");
+                    Console.ReadKey();
+                    System.Environment.Exit(0);
                     break;
                 case 0:
                     Console.Clear();
