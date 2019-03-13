@@ -1,0 +1,44 @@
+SEM,101,,Spartan Seminars 101,1,,Core,FO
+CSC,101,,Introduction to the Computer Science Profession,1,,CS,FO
+CSC,170,,Computer Programming I,3,,CS,E
+CSC,170,L,Computer Programming I Lab 1,1,,CS,E
+MTH,153,,College Algebra and Trigonometry,3,MTH 105,Core,E
+ENG,101,,Communication Skills I ,3,,Core,E
+PED,100,,Fundamentals of Fitness Life,1,,Core,SO
+CSC,260,,Computer Programming II ,3,CSC 170,CS,EE
+CSC,260,L,Computer Programming II Lab,1,CSC 170L,CS,EE
+SEM,102,,Spartan Seminars 102,1,SEM 01,Core,SO
+MTH,184,,Calculus I,4,,Core,E
+ENG,102,,Communication Skills II,3,ENG 101,Core,E
+SSE,199,,Social Science Elective,4,,Core,E
+HED,100,,Personal and Community Health,2,,Core,EE
+SEM,201,,Spartan Seminar 201,1,,Core,FO
+CSC,372,,Data Structures,3,CSC 260,CS,EE
+LSE,199,,Laboratory Science Elective I,4,,Core,EE
+MTH,251,,Calculus II,4,MTH 184,Core,E
+MTH,371,,Discrete Mathematical Structures,4,MTH 184,Core,EE
+CSC,268,,Computer Organization,3,CSC 170,CS,EE
+CSC,295,,Java Programming,3,CSC 295,CS,SO
+CSC,361,,Survey of Programming Languages,3,,CS,SO
+ENG,303,,Technical Writing,3,ENG 102,Core,E
+SCM,285,,Principles of Speech,3,ENG 102,Core,E
+CSC,292,,Unix and C Programming,3,CSC 260,CS,SO
+CSC,380,,Software Engineering,3,CSC 260,CS,SO
+CSC,468,,Computer Architecture,3,CSC 260,CS,SI
+MTH,351,,Probability and Statistics I,3,MTH 251,Core,EE
+SS1,398,,Science Sequence I,4,,Core,EE
+CSC,430,,Data Communications,3,CSC 372,CS,FO
+CSC,399,,Computer Science Elective (300+)?,3,,CS,E
+HUM,299,,Humanities Elective,3,,Core,EE
+SS2,399,,Science Sequence II,4,SS 1,Core,EE
+CSC,498,,Senior Seminar I,1,,CS,EE
+CSC,464,,Operating Systems Computer,3,CSC 372,CS,FO
+MTH,399,,Mathematics Elective (300 level or above),3,,Core,E
+CSC,399,,Computer Science Elective (300+)?,3,,CS,E
+SSE,399,,Social Science Elective,3,,Elective,E
+HUM,399,,Humanities Cultural Elective II,3,,Elective,E
+CSC,499,,Senior Seminar II,1,,CS,SO
+CSC,399,,Computer Science Elective (300+)?,3,,CS,E
+CSC,399,,Computer Science Elective (300+)?,3,,CS,E
+CSC,399,,Computer Science Elective (300+)?,3,,CS,E
+FRE,199,,Free Elective,3,,,E
