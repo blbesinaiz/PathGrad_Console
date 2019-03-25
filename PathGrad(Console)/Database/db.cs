@@ -83,15 +83,29 @@ namespace PathGrad_Console_.Database
 
         public static void restoreSession()
         {
-            string filename = Student.ID.ToString() + ".txt";
+            //string filename = Student.ID.ToString() + ".txt";
             //var reader = new StreamReader(File.OpenRead(filename));
-            string contents = File.ReadAllText(filename);
+            //string contents = File.ReadAllText(filename);
 
             //Make Instance of tempStudent Object
             tempStudent temp = new tempStudent();
 
+            //Make Connection with database
+            var conString = "mongodb://localhost:27017";
+            var Client = new MongoClient(conString);
+            var DB = Client.GetDatabase("Path_To_Grad");
+            var collection = DB.GetCollection<BsonDocument>("Student_Profiles");
+
+            //Query Database
+            var filter = new BsonDocument
+            {
+                {"_id", Student.ID}
+            };
+            List<MongoDB.Bson.BsonDocument> list = collection.Find(filter).ToList();
+
             //Deserealize
-            temp = JsonConvert.DeserializeObject<tempStudent>(contents);
+            var holder = list[0]["profile"].ToString();
+            temp = JsonConvert.DeserializeObject<tempStudent>(holder);
 
             //Reasign to Student in program
             Student.ID = temp.tempID;
@@ -101,31 +115,6 @@ namespace PathGrad_Console_.Database
             Student.takenCourses = temp.tempTaken;
 
             Console.Clear();
-
-            /*DATABASE NOT WORKING
-            //Make Connection with database
-            var conString = "mongodb://localhost:27017";
-            var Client = new MongoClient(conString);
-            var DB = Client.GetDatabase("Path_To_Grad");
-            var collection = DB.GetCollection<BsonDocument>("Student_Profiles");
-
-            var filter = new BsonDocument
-            {
-                {"_id", Student.ID}
-            };
-
-            //Search for desired elements
-            List<MongoDB.Bson.BsonDocument> list = collection.Find(filter).ToList();
-
-            //string result = list[0].ToString();
-            //Console.WriteLine("Result: {0}", result);
-
-            BsonDocument result = list[0];
-
-            tempProfile t = new tempProfile();
-            t = BsonSerializer.Deserialize<tempProfile>(result);
-
-            //Console.WriteLine("ID: {0} \nData: {1}", t.id, t.studentData);*/
         }
     }
 }

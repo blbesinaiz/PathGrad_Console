@@ -47,13 +47,15 @@ namespace PathGrad_Console_.Paths
                 //Output Starting Semester
                 Console.WriteLine("\n{0} {1}", currentSemester, year);
                 Console.WriteLine("--------------");
+
                 foreach (var Course in Student.courseList)
                 {
-                    if (Course.assigned == false)
+                    //if ((Course.assigned == false) && (Constraints.Check_Constraints(Course) == true))
+                    if(Course.assigned == false)
                     {
                         Section_Semester(Course);
                         Course.assigned = true;
-                        creditCounter += Course.ch;
+                        creditCounter += Course.ch;                        
                     }
 
                     if (creditCounter +  3 > maxCH)

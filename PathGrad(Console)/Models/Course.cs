@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PathGrad_Console_.Models
 {
-    class Course
+    public class Course
     {
         public string charac { get; set; }       //Better name?? CSC
         public int num { get; set; }           //101

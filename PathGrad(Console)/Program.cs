@@ -31,7 +31,7 @@ namespace PathGrad_Console_
             Console.WriteLine("(2) Register New Account");
             Console.WriteLine("(3) Forgot Password");
             Console.WriteLine("(4) Exit");
-            Console.WriteLine("(0) Back Door");
+            //Console.WriteLine("(0) Back Door");
 
             Console.Write("\n\n Option: ");
             userResponse = Convert.ToInt32(Console.ReadLine());

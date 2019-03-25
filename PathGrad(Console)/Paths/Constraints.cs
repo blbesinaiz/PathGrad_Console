@@ -13,10 +13,10 @@ namespace PathGrad_Console_.Paths
         {
             bool status = false;
 
-            //Constrains:
+            //Constrainst:
 
             //Check for prequisite
-
+            status = Met_prequisite(c);
 
             //Check for co-requisite
 
@@ -27,19 +27,36 @@ namespace PathGrad_Console_.Paths
 
         }
 
-        public static bool met_prequisite(Course c)
+        public static bool Met_prequisite(Course c)
         {
             bool status = false;
+            string requiredPre;
+            Course temp = new Course();
 
-            if(c.prerequisites != "")
+            if (c.prerequisites != "")
             {
                 //Find course prequisite
+                requiredPre = c.prerequisites;
+                //Get whole value of course name
+                string courseName;
+                foreach(var Course in Student.courseList)
+                {
+                    courseName = Course.charac + " " + Course.num + Course.lab;
+                    if(courseName == requiredPre)
+                    {
+                        temp = Course;
+                    }
+                }
 
+                Console.WriteLine(temp.assigned);
                 //See have been assigned
-
-                //If prereq assigned == true
-
+                if (temp.assigned == true)
+                    status = true;
+                else
+                    status = false;
             }
+            else
+                status = true;
 
             return status;
         }
