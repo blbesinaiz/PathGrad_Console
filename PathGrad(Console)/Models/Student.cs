@@ -14,4 +14,14 @@ namespace PathGrad_Console_.Models
         public static List<Course> courseList;
         public static List<Course> takenCourses;
     }
+
+    public class tempStudent
+    {
+        public int tempID;
+        public string tempName;
+        public string tempTrack;
+        public List<Course> tempCourses;
+        public List<Course> tempTaken;
+
+    }
 }

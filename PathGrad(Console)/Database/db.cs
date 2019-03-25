@@ -14,7 +14,7 @@ namespace PathGrad_Console_.Database
 {
     class db
     {
-        public class tempStudent
+        /*public class tempStudent
         {
             public int tempID;
             public string tempName;
@@ -22,7 +22,7 @@ namespace PathGrad_Console_.Database
             public List<Course> tempCourses;
             public List<Course> tempTaken;
 
-        }
+        }*/
 
         public class tempProfile
         {
@@ -64,11 +64,13 @@ namespace PathGrad_Console_.Database
             //Insert into Database
             collection.InsertOne(document);
 
+            /*
             //Database not working so save to text file!!
             string filename = Student.ID.ToString() + ".txt";
             var writer = new StreamWriter(File.OpenWrite(filename));
             writer.WriteLine(jsonData);
             writer.Close();
+            */
 
             //Give Confirmation
             Console.WriteLine("Profile Successfully saved!");

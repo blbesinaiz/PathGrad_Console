@@ -1,4 +1,7 @@
-﻿using PathGrad_Console_.Database;
+﻿using MongoDB.Bson;
+using MongoDB.Driver;
+using Newtonsoft.Json;
+using PathGrad_Console_.Database;
 using PathGrad_Console_.Models;
 using System;
 using System.Collections.Generic;
@@ -35,6 +38,54 @@ namespace PathGrad_Console_.Profile
                 step++;
             }
 
+        }
+
+        public static void loadTrack(string track)
+        {
+            //Make a connection with DB for Login collection
+            var conString = "mongodb://localhost:27017";
+            var Client = new MongoClient(conString);
+            var DB = Client.GetDatabase("Path_To_Grad");
+            var collection = DB.GetCollection<BsonDocument>("Tracks");
+
+
+            var filter = new BsonDocument
+            {
+                {"_id", track}
+            };
+
+            //Search for desired elements
+            List<MongoDB.Bson.BsonDocument> list = collection.Find(filter).ToList();
+
+            tempStudent temp = new tempStudent();
+
+            //Deserealize
+            var holder = list[0]["curriculum"].ToString();
+            temp = JsonConvert.DeserializeObject<tempStudent>(holder);
+
+            Student.courseList = temp.tempCourses;
+
+            /*string path;        //Variable will hold path
+
+            //Find file
+            path = Directory.GetCurrentDirectory();
+            path = path + @"\Tracks\" + track + ".csv";
+
+            try
+            {
+
+                // List<Course> values = File.ReadAllLines(path)
+                Student.courseList = File.ReadAllLines(path)
+                                        .Skip(1)
+                                        .Select(v => Course.FromCsv(v))
+                                        .ToList();
+            }
+
+            catch (Exception e)
+            {
+                Console.WriteLine("The file could not be read: ");
+                Console.WriteLine(e.Message);
+            }*/
         }
 
         public static void setTrack()
@@ -128,31 +179,6 @@ namespace PathGrad_Console_.Profile
                 Console.ReadKey();
                 Console.Clear();
                 Program.menu();
-            }
-        }
-
-        public static void loadTrack(string track)
-        {
-            string path;        //Variable will hold path
-
-            //Find file
-            path = Directory.GetCurrentDirectory();
-            path = path + @"\Tracks\" + track + ".csv";
-
-            try
-            {
-                
-                // List<Course> values = File.ReadAllLines(path)
-                Student.courseList = File.ReadAllLines(path)
-                                        .Skip(1)
-                                        .Select(v => Course.FromCsv(v))
-                                        .ToList();
-            }
-
-            catch (Exception e)
-            {
-                Console.WriteLine("The file could not be read: ");
-                Console.WriteLine(e.Message);
             }
         }
 
